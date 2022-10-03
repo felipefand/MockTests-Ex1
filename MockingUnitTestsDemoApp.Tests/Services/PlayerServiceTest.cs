@@ -32,10 +32,10 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             _mockPlayerRepository.GetForTeam(Arg.Any<int>()).Returns(GetPlayerList());
 
             //Act
-            var teams = _subject.GetForLeague(leagueId);
+            var players = _subject.GetForLeague(leagueId);
 
             //Assert
-            teams.Should()
+            players.Should()
                 .NotBeEmpty();
         }
 
@@ -47,10 +47,10 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             _mockLeagueRepository.IsValid(Arg.Any<int>()).Returns(false);
 
             //Act
-            var teams = _subject.GetForLeague(leagueId);
+            var players = _subject.GetForLeague(leagueId);
 
             //Assert
-            teams.Should()
+            players.Should()
                 .BeEmpty();
         }
 
